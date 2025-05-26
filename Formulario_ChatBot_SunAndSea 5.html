@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Prueba - ChatBot Sun & Sea</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #1e88e5;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 20px;
+    }
+    select, textarea, input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    input[type="radio"], input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    button {
+      margin-top: 30px;
+      background: #1e88e5;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1565c0;
+    }
+  </style>
+</head>
+<body>
+  <header style="background-color:#1e88e5; color:white; padding:20px; text-align:center;">
+    <h1 style="margin:0; font-size:2em;">Sun & Sea Real Estate</h1>
+    <p style="margin:5px 0 0; font-size:1.2em;">Formulario de prueba interna para evaluar el ChatBot</p>
+  </header>
+  <div class="container">
+    <h2>📝 Prueba Interna del ChatBot – Sun & Sea Real Estate</h2>
+    <form action="https://formsubmit.co/jporley@yahoo.es" method="POST">
+      <label for="question_number">1. Escenario de prueba:</label>
+      <select id="question_number" name="question_number">
+        <option value="1">¿Qué opciones me recomiendas para alquilar todo el año con un presupuesto de 500€?</option>
+        <option value="2">¿Cuál es la propiedad más barata que tenéis disponible para alquiler de larga estancia?</option>
+        <option value="3">Estoy buscando algo por 15 días, ¿puedo alquilar con vosotros?</option>
+        <option value="4">¿Qué propiedades tienen disponibles en Lo Pagán o alrededores?</option>
+        <option value="5">¿Tenéis algún piso disponible en venta por menos de 20.000€?</option>
+        <option value="6">¿Cuál es el apartamento más económico en Moraira disponible en octubre por un año?</option>
+        <option value="7">Quiero alquilar por un año a partir de septiembre. ¿Qué opciones tenéis?</option>
+        <option value="8">¿Tenéis pisos disponibles por todo el año o solo de septiembre a junio?</option>
+        <option value="9">Quiero alquilar una casa. ¿Me puedes mostrar pisos de obra nueva?</option>
+        <option value="10">¿Esta propiedad acepta mascotas?</option>
+        <option value="11">Tengo un perro pequeño, ¿qué propiedades puedo ver?</option>
+        <option value="12">¿Cuántos meses de fianza se requieren?</option>
+        <option value="13">¿Qué documentación debo presentar si soy autónomo?</option>
+        <option value="14">¿Puedo pagar el contrato por adelantado?</option>
+        <option value="15">¿El servicio de Sun & Sea tiene algún costo? ¿Qué incluye exactamente?</option>
+        <option value="16">¿Dónde están ubicadas vuestras oficinas?</option>
+        <option value="17">¿Cuál es el horario de atención?</option>
+        <option value="18">¿Ofrecéis alquiler vacacional?</option>
+        <option value="19">¿Puedo empadronarme en el piso?</option>
+        <option value="20">¿Quién me ayuda si tengo un problema con la vivienda una vez alquilada?</option>
+      </select>
+
+      <label for="scenario">2. Escenario o pregunta original (copiar si fue editado o ampliado):</label>
+      <textarea id="scenario" name="scenario" rows="4"></textarea>
+
+      <label>3. ¿Responde correctamente el bot?</label>
+      <input type="radio" name="correct" value="Sí"> Sí
+      <input type="radio" name="correct" value="Parcialmente"> Parcialmente
+      <input type="radio" name="correct" value="No"> No
+
+      <label for="bot_reply">4. Respuesta que dio el bot:</label>
+      <textarea id="bot_reply" name="bot_reply" rows="4"></textarea>
+
+      <label>5. ¿Requiere mejora?</label>
+      <input type="radio" name="needs_fix" value="Sí"> Sí
+      <input type="radio" name="needs_fix" value="No"> No
+
+      <label>6. Tipo de error (puede seleccionar más de uno):</label>
+      <input type="checkbox" name="error_type" value="Filtro"> Filtro / búsqueda
+      <input type="checkbox" name="error_type" value="Legal"> Información legal
+      <input type="checkbox" name="error_type" value="Mascotas"> Información sobre mascotas
+      <input type="checkbox" name="error_type" value="Oficina"> Información de oficina
+      <input type="checkbox" name="error_type" value="Precio"> Precio
+      <input type="checkbox" name="error_type" value="Otro"> Otro
+
+      <label for="comments">7. Comentarios o sugerencias del tester:</label>
+      <textarea id="comments" name="comments" rows="4"></textarea>
+
+      <label>8. ¿Ya fue corregido?</label>
+      <input type="radio" name="fixed" value="Sí"> Sí
+      <input type="radio" name="fixed" value="No"> No
+      <input type="radio" name="fixed" value="En proceso"> En proceso
+
+      <button type="submit">Enviar formulario</button>
+    </form>
+  </div>
+</body>
+</html>
