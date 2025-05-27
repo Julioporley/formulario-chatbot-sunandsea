@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario Simplificado - ChatBot Sun & Sea</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #1e88e5;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 20px;
+    }
+    select, textarea, input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      background: #1e88e5;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1565c0;
+    }
+    header {
+      text-align: center;
+    }
+    header img {
+      width: 200px;
+      margin-bottom: 10px;
+    }
+    #ayuda {
+      background: #f1f1f1;
+      padding: 15px;
+      margin-top: 20px;
+      display: none;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="Sunandsea_logo.png" alt="Sun and Sea Real Estate">
+      <h2>📝 Evaluación ChatBot – Sun & Sea</h2>
+    </header>
+
+    <button onclick="mostrarAyuda()">📘 Ayuda para testear</button>
+    <div id="ayuda">
+      <h3>¿Cómo completar la evaluación?</h3>
+      <ul>
+        <li>1. Ingresá tu nombre para identificar la evaluación.</li>
+        <li>2. Seleccioná una pregunta de ejemplo. Si la usás tal cual, podés copiarla con el botón "Copiar texto".</li>
+        <li>3. Si hiciste una variante o escribiste otra consulta, completala en "Pregunta realizada".</li>
+        <li>4. Pegá la respuesta exacta que dio el bot.</li>
+        <li>5. Escribí la respuesta que esperabas del bot (ideal).</li>
+        <li>6. Hacé clic en "Enviar formulario". Se te preguntará si querés cargar otra evaluación.</li>
+      </ul>
+      <p>Gracias por ayudarnos a mejorar nuestra atención al cliente con IA 🤖</p>
+    </div>
+
+    <form id="formulario-evaluacion" action="https://formsubmit.co/jporley@yahoo.es" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://julioporley.github.io/formulario-chatbot-sunandsea/">
+
+      <label for="evaluator_name">1. Nombre del evaluador:</label>
+      <input type="text" id="evaluator_name" name="evaluator_name" required>
+
+      <label for="question_number">2. Preguntas de ejemplo:</label>
+      <select id="question_number" name="question_number">
+        <option value="1">¿Qué opciones me recomiendas para alquilar todo el año con un presupuesto de 500€?</option>
+        <option value="2">¿Cuál es la propiedad más barata que tenéis disponible para alquiler de larga estancia?</option>
+        <option value="3">Estoy buscando algo por 15 días, ¿puedo alquilar con vosotros?</option>
+        <option value="4">¿Qué propiedades tienen disponibles en Lo Pagán o alrededores?</option>
+        <option value="5">¿Tenéis algún piso disponible en venta por menos de 50.000€?</option>
+        <option value="6">¿Cuál es el apartamento más económico en Moraira disponible en octubre por un año?</option>
+        <option value="7">Quiero alquilar por un año a partir de septiembre. ¿Qué opciones tenéis?</option>
+        <option value="8">¿Tenéis pisos disponibles por todo el año o solo de septiembre a junio?</option>
+        <option value="9">Quiero comprar una casa. ¿Me puedes mostrar pisos de obra nueva?</option>
+        <option value="10">¿Esta propiedad acepta mascotas?</option>
+        <option value="11">Tengo un perro pequeño, ¿qué propiedades puedo ver?</option>
+        <option value="12">¿Cuántos meses de fianza se requieren?</option>
+        <option value="13">¿Qué documentación debo presentar si soy autónomo?</option>
+        <option value="14">¿Puedo pagar el contrato por adelantado?</option>
+        <option value="15">¿El servicio de Sun & Sea tiene algún costo? ¿Qué incluye exactamente?</option>
+        <option value="16">¿Dónde están ubicadas vuestras oficinas?</option>
+        <option value="17">¿Cuál es el horario de atención?</option>
+        <option value="18">¿Ofrecéis alquiler vacacional?</option>
+        <option value="19">¿Puedo empadronarme en el piso?</option>
+        <option value="20">¿Quién me ayuda si tengo un problema con la vivienda una vez alquilada?</option>
+      </select>
+      <button type="button" onclick="copiarTextoSeleccionado()">Copiar texto</button>
+
+      <label for="scenario">3. Pregunta realizada:</label>
+      <textarea id="scenario" name="scenario" rows="3"></textarea>
+
+      <label for="bot_reply">4. Respuesta del Bot:</label>
+      <textarea id="bot_reply" name="bot_reply" rows="3"></textarea>
+
+      <label for="expected_reply">5. Respuesta esperada:</label>
+      <textarea id="expected_reply" name="expected_reply" rows="3"></textarea>
+
+      <button type="submit">Enviar formulario</button>
+    </form>
+  </div>
+
+  <script>
+    function copiarTextoSeleccionado() {
+      const selector = document.getElementById("question_number");
+      const texto = selector.options[selector.selectedIndex].text;
+      navigator.clipboard.writeText(texto).then(() => {
+        alert("Texto copiado: " + texto);
+      }).catch(err => {
+        alert("Error al copiar: " + err);
+      });
+    }
+
+    function mostrarAyuda() {
+      const ayuda = document.getElementById("ayuda");
+      ayuda.style.display = ayuda.style.display === "none" ? "block" : "none";
+    }
+
+    window.onload = function () {
+      if (document.referrer.includes("formsubmit.co")) {
+        setTimeout(() => {
+          if (confirm("✅ ¡Formulario enviado! ¿Querés evaluar otra respuesta?")) {
+            const form = document.getElementById("formulario-evaluacion");
+            const evaluator = document.getElementById("evaluator_name").value;
+            form.reset();
+            document.getElementById("evaluator_name").value = evaluator;
+          }
+        }, 400);
+      }
+    };
+  </script>
+</body>
+</html>
